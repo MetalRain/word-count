@@ -1,0 +1,4 @@
+[root]
+name = "word-count-rs"
+version = "0.1.0"
+
