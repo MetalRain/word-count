@@ -10,8 +10,8 @@ Learning & comparing functional programming languages implementing word count al
 ## Implementations
 
 * Clojure, [word-cloud-clj](./word-count-clj/README.md)
-* Haskell, [word-cloud-clj](./word-count-hs/README.md)
-* Rust, [word-cloud-clj](./word-count-rs/README.md)
+* Haskell, [word-cloud-hs](./word-count-hs/README.md)
+* Rust, [word-cloud-rs](./word-count-rs/README.md)
 
 ## Output
 
