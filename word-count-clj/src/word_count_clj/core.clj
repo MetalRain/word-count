@@ -3,11 +3,9 @@
 
 (use 'clojure.java.io)
 
-(defn readfile
-  "Reads file to lines"
-  [filepath linefn lines]
-    (with-open [rdr (reader filepath)]
-      (reduce linefn lines (line-seq rdr))))
+(defn readfile [filepath linefn lines]
+  (with-open [rdr (reader filepath)]
+    (reduce linefn lines (line-seq rdr))))
 
 (defn extract-words [lines line]
   (into lines (re-seq #"[^\s]+" line)))
@@ -27,11 +25,19 @@
           [(get word-map a) a])))
     word-map))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
+(defn format-pair [k v]
+  (format
+    "%d: %s"
+    v
+    (name k)))
+
+(defn -main [& args]
   (let 
     [words (readfile "../data/t8.shakespeare.txt" extract-words [])
     word-map (reduce insert-to-map {} words)
     sorted (sort-map word-map)]
-    (println (take 100 sorted))))
+    (doseq [keyval (take 100 sorted)]
+      (println
+        (format-pair 
+          (key keyval) 
+          (val keyval))))))
