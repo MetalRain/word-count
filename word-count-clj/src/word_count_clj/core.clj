@@ -3,6 +3,8 @@
 
 (use 'clojure.java.io)
 
+(def data-file "../data/t8.shakespeare.txt")
+
 (defn readfile [filepath linefn lines]
   (with-open [rdr (reader filepath)]
     (reduce linefn lines (line-seq rdr))))
@@ -33,7 +35,7 @@
 
 (defn -main [& args]
   (let 
-    [words (readfile "../data/t8.shakespeare.txt" extract-words [])
+    [words (readfile data-file extract-words [])
     word-map (reduce insert-to-map {} words)
     sorted (sort-map word-map)]
     (doseq [keyval (take 100 sorted)]

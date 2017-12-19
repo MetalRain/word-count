@@ -23,5 +23,7 @@ fn main() {
                                    .collect();
   counts.sort_by(|&(_, a_val), &(_, b_val)| b_val.cmp(a_val));
 
-  println!("{:?}", counts[0..100].to_vec());
+  for (key, value) in counts[0..100].to_vec() {
+    println!("{}: {}", value, key)
+  }
 }
