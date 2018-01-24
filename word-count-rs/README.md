@@ -2,12 +2,18 @@
 
 Word count with Rust
 
-Build:
+## Installation
+
+* Install Rust with [rustup](https://www.rust-lang.org/en-US/install.html)
+
+## Build
+
 ```sh
 cargo build
 ```
 
-Run:
+## Run
+
 ```sh
 ./target/debug/word-count-rs
 ```
